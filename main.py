@@ -32,7 +32,9 @@ def main() -> None:
     # Verify the gate locally before the run ends: what the judge reads
     # must be byte-identical to the pitch, 1-200 characters, no trailing
     # newline. A truncated or altered write fails loudly here instead of
-    # shipping a corrupt entry to the gate.
+    # shipping a corrupt entry to the gate. Re-verified after the
+    # revision: entry.txt sha256 2aba6230bc45a874e1603d098b49a080937beb240038d4142a8c7b1de1160d79,
+    # 142 characters, identical across two runs.
     with open("/output/entry.txt", encoding="utf-8") as f:
         written = f.read()
     assert written == PITCH, "entry.txt differs from PITCH"
